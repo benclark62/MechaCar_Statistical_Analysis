@@ -19,3 +19,15 @@ total_summary <- Susp_coil %>% summarize(mean(PSI),median(PSI),var(PSI),sd(PSI),
 total_summary
 
 lot_summary <- Susp_coil %>% group_by(Manufacturing_Lot) %>% summarize(mean(PSI),median(PSI),var(PSI),sd(PSI),.groups = 'keep') # DELIVERABLE 2 STEP 4 create summary table for PSI column grouped by Manufacturing_lot
+
+t.test(lot_summary$`mean(PSI)`,mu=mean(1500)) # DELIVERABLE 3 STEP 1
+
+lot1 <- subset(Susp_coil,Manufacturing_Lot=="Lot1")
+lot2 <- subset(Susp_coil,Manufacturing_Lot=="Lot2")
+lot3 <- subset(Susp_coil,Manufacturing_Lot=="Lot3")
+
+t.test(lot1$`PSI`,mu=mean(1500)) #DELIVERABLE 3 STEP 2
+
+t.test(lot2$PSI,mu=mean(1500)) #DELIVERABLE 3 STEP 2
+
+t.test(lot3$PSI,mu=mean(1500)) #DELIVERABLE 3 STEP 2
